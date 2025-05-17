@@ -9,35 +9,10 @@ from datetime import datetime
 # For the number of sample of tasksets, we change the size of the chain from min_chainlength to max_chainlength and measure the end-to-end latency
 
 max_allowed_jobchains=inf
-
 functions=[
     ("mapAllTasks", {"MappingMethod":"WF","LargestFirst":True}),  # Function for not replicated
     ("mapAllTasks", {"MappingMethod":"WF","LargestFirst":True}),  # Functions for replicated
-    
-    ("mapChainTasksTogether", {"ChainMappingMethod":"WF","ChainSortingBasis":"Utilization", "ChainDescendingOrder":True,"MapFreeTasksFirst":False, "freeTasksMapping":"KeepChainWCRT","freeSortingBasis":"Utilization", "freeDescendingOrder":True}),
-    ("mapChainTasksTogether", {"ChainMappingMethod":"KeepChainWCRT","ChainSortingBasis":"Utilization", "ChainDescendingOrder":True,"MapFreeTasksFirst":False, "freeTasksMapping":"KeepChainWCRT","freeSortingBasis":"Utilization", "freeDescendingOrder":True}),
-    ("mapChainTasksTogether", {"ChainMappingMethod":"WF","ChainSortingBasis":"Period", "ChainDescendingOrder":True,"MapFreeTasksFirst":False, "freeTasksMapping":"KeepChainWCRT","freeSortingBasis":"Utilization", "freeDescendingOrder":True}),
-    ("mapChainTasksTogether", {"ChainMappingMethod":"WF","ChainSortingBasis":"Period", "ChainDescendingOrder":False,"MapFreeTasksFirst":False, "freeTasksMapping":"KeepChainWCRT","freeSortingBasis":"Utilization", "freeDescendingOrder":True}),
-    ("mapChainTasksTogether", {"ChainMappingMethod":"WF","ChainSortingBasis":"Utilization", "ChainDescendingOrder":True,"MapFreeTasksFirst":True, "freeTasksMapping":"BF","freeSortingBasis":"Utilization", "freeDescendingOrder":True}), 
-
-    ("mapChainByChainFromLeaf", {"ChainMappingMethod":"KeepChainWCRT","ChainDesendingLength":True,"MapFreeTasksFirst":False,"freeTasksMapping":"KeepChainWCRT", "freeSortingBasis":"Utilization","freeDescendingOrder":True}),
-    ("mapChainByChainFromRoot", {"ChainMappingMethod":"KeepChainWCRT","ChainDesendingLength":True,"MapFreeTasksFirst":False,"freeTasksMapping":"KeepChainWCRT", "freeSortingBasis":"Utilization","freeDescendingOrder":True}),
-
-    ("mapChainAwareLeaf2Root", {"ChainMappingMethod":"KeepChainWCRT","ChainDesendingLength":True,"MapFreeTasksFirst":False,"freeTasksMapping":"KeepChainWCRT", "freeSortingBasis":"Utilization","freeDescendingOrder":True}),
-    ("mapChainAwareRoot2Leaf", {"ChainMappingMethod":"KeepChainWCRT","ChainDesendingLength":True,"MapFreeTasksFirst":False,"freeTasksMapping":"KeepChainWCRT", "freeSortingBasis":"Utilization","freeDescendingOrder":True}),
-
-    ("mapChainRoot2LeafTaskBased", {"ChainMappingMethod":"KeepChainWCRT","ChainSortingBasis":"Utilization","ChainDescendingOrder":True,"MapFreeTasksFirst":False,"freeTasksMapping":"KeepChainWCRT", "freeSortingBasis":"Utilization","freeDescendingOrder":True}),
-    ("mapChainLeaf2RootTaskBased", {"ChainMappingMethod":"KeepChainWCRT","ChainSortingBasis":"Utilization","ChainDescendingOrder":True,"MapFreeTasksFirst":False,"freeTasksMapping":"KeepChainWCRT", "freeSortingBasis":"Utilization","freeDescendingOrder":True}),
-
-    ("mapTasksInMostChains", {"ChainMappingMethod":"KeepChainWCRT","ChainDesendingLength":True,"MapFreeTasksFirst":False,"freeTasksMapping":"KeepChainWCRT", "freeSortingBasis":"Utilization","freeDescendingOrder":True}),
-
-    # ("mapAllTasks", (), {"MappingMethod":"WCRT","LargestFirst":LargestFirst}), 
-    # ("mapDataFlowAwarePredecessors", {"MappingMethod":MappingMethod, "LargestFirst":LargestFirst,"WFDFreeTasksFirst":WFDFreeTasksFirst}),
-    # ("mapChainLeaf2RootLargeTaskFirst", {"MappingMethod":MappingMethod, "DesendingLength":DesendingLength,"WFDFreeTasksFirst":WFDFreeTasksFirst}),
-    # ("mapDataFlowAwareSuccessors", {"MappingMethod":MappingMethod, "LargestFirst":LargestFirst,"WFDFreeTasksFirst":WFDFreeTasksFirst}),
-    # ("mapDataFlowAwareBundleFromLeaf", {"MappingMethod":MappingMethod, "LargestFirst":LargestFirst,"WFDFreeTasksFirst":WFDFreeTasksFirst}),
-    # ("mapDataFlowAwareBundleFromRoot", {"MappingMethod":MappingMethod, "LargestFirst":LargestFirst,"WFDFreeTasksFirst":WFDFreeTasksFirst}),
-
+    ("mapChainLeaf2RootTaskBased", {"ChainMappingMethod":"WF","ChainSortingBasis":"Utilization","ChainDescendingOrder":True,"MapFreeTasksFirst":False,"freeTasksMapping":"KeepChainWCRT", "freeSortingBasis":"Utilization","freeDescendingOrder":True})
 ]
 
 function_names=[]
